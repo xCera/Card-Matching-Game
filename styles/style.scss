@@ -1,0 +1,72 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+body {
+	height: 100vh;
+	background-color: #8ec5fc;
+	background-image: linear-gradient(62deg, #f7d872 0%, #f18256 100%);
+	display: flex;
+}
+
+.playspace {
+	width: 700px;
+	height: 640px;
+	display: flex;
+	flex-wrap: wrap;
+	margin: auto;
+	perspective: 1000px;
+}
+
+.card {
+	display: flex;
+	justify-content: center;
+	width: calc(25% - 10px);
+	height: calc(33.3% - 10px);
+	position: relative;
+	transform: scale(1);
+	transform-style: preserve-3d;
+	transition: transform .5s;
+	border-radius: 5px;
+	margin: 5px;
+	img {
+		background-size: cover;
+		height: 150px;
+		width: 120px;
+	}
+
+	&:active {
+		transform: scale(.97);
+		transition: transform .2s;
+	}
+}
+
+.card.flip {
+	transform: rotateY(180deg);
+}
+
+.card-front,
+.card-back {
+	position: absolute;
+	width: 90%;
+	height: 90%;
+	border-radius: 5px;
+	backface-visibility: hidden;
+}
+
+.card-front {
+	background-color: white;
+	transform: rotateY(180deg);
+	padding: 45px;
+}
+
+.card {
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
